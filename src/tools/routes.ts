@@ -143,7 +143,7 @@ function headerString(v: unknown): string | undefined {
   return undefined;
 }
 
-function normalizeEmptyStrings(value: unknown) {
+function normalizeEmptyStrings(value: unknown): unknown {
   if (!value || typeof value !== "object") return value;
   if (Array.isArray(value)) return value.map(normalizeEmptyStrings);
 

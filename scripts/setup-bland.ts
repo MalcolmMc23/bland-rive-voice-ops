@@ -31,19 +31,19 @@ async function main() {
     voice: env.BLAND_VOICE,
     model: env.BLAND_MODEL,
     timezone: "America/Los_Angeles",
-    webhook: `${env.PUBLIC_BASE_URL.replace(/\\/$/, "")}/webhooks/bland`,
+    webhook: `${env.PUBLIC_BASE_URL.replace(/\/$/, "")}/webhooks/bland`,
     webhook_events: ["call", "tool", "webhook"],
     tools: [leaseToolId, maintenanceToolId]
   });
 
   console.log("✅ Updated inbound number config");
   console.log(`- Number: ${env.BLAND_INBOUND_NUMBER}`);
-  console.log(`- Webhook: ${env.PUBLIC_BASE_URL.replace(/\\/$/, "")}/webhooks/bland`);
+  console.log(`- Webhook: ${env.PUBLIC_BASE_URL.replace(/\/$/, "")}/webhooks/bland`);
   console.log(`- Tools: ${leaseToolId}, ${maintenanceToolId}`);
 }
 
 function buildLeaseTool() {
-  const base = env.PUBLIC_BASE_URL!.replace(/\\/$/, "");
+  const base = env.PUBLIC_BASE_URL!.replace(/\/$/, "");
   return {
     name: "RiveLogLeaseLead",
     description: "Log a leasing lead for The Rive into Google Sheets.",
@@ -88,7 +88,7 @@ function buildLeaseTool() {
 }
 
 function buildMaintenanceTool() {
-  const base = env.PUBLIC_BASE_URL!.replace(/\\/$/, "");
+  const base = env.PUBLIC_BASE_URL!.replace(/\/$/, "");
   return {
     name: "RiveLogMaintenanceTicket",
     description: "Log a maintenance request for The Rive into Google Sheets.",
@@ -145,4 +145,3 @@ main().catch((err) => {
   console.error(err);
   process.exitCode = 1;
 });
-

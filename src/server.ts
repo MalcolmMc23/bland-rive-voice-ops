@@ -3,6 +3,7 @@ import { env } from "./lib/env.js";
 import { webhooksRoutes } from "./webhooks/routes.js";
 import { toolsRoutes } from "./tools/routes.js";
 import { debugRoutes } from "./debug/routes.js";
+import { uiRoutes } from "./ui/routes.js";
 
 export async function buildServer() {
   const server = Fastify({
@@ -17,6 +18,7 @@ export async function buildServer() {
   await server.register(webhooksRoutes, { prefix: "/webhooks" });
   await server.register(toolsRoutes, { prefix: "/tools" });
   await server.register(debugRoutes, { prefix: "/debug" });
+  await server.register(uiRoutes);
 
   return server;
 }

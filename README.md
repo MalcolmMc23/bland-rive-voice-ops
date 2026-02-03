@@ -64,6 +64,7 @@ Call your Bland number and test:
 ## Endpoints
 
 - `GET /health` — health check
+- `GET /` — quick UI (calls list)
 - `POST /webhooks/bland` — Bland webhook (verifies `X-Webhook-Signature` if `BLAND_WEBHOOK_SECRET` is set)
 - `POST /tools/log-lease-lead` — custom tool endpoint (auth via `TOOLS_SHARED_SECRET`)
 - `POST /tools/log-maintenance-ticket` — custom tool endpoint (auth via `TOOLS_SHARED_SECRET`)
